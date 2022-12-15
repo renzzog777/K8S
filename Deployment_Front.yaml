@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: crud
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: crud
+  template:
+    metadata:
+      labels:
+        app: crud
+    spec:
+      containers:
+      - name: frontend
+        image: renzzog77/frontend
+        ports:
+        - containerPort: 3000

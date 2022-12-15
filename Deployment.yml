@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: crud
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: crud
+  template:
+    metadata:
+      labels:
+        app: crud
+    spec:
+      containers:
+      - name: backend
+        image: renzzog77/backend
+        ports:
+        - containerPort: 80
